@@ -5,26 +5,20 @@ using std::string;
 // Write code for function(s) code here
 string get_letter_grade_using_if(int grade)
 {
+    string letter_grade;
+
     if (grade >= 90 && grade <= 100)
-    {
-        return "A";
-    }
+        letter_grade = "A";
     else if (grade >= 80 && grade < 90)
-    {
-        return "B";
-    }
+        letter_grade = "B";
     else if (grade >= 70 && grade < 80)
-    {
-        return "C";
-    }
+        letter_grade = "C";
     else if (grade >= 60 && grade < 70)
-    {
-        return "D";
-    }
+        letter_grade = "D";
     else
-    {
-        return "F";
-    }
+        letter_grade = "F";
+
+    return letter_grade;
 }
 
 std::string get_letter_grade_using_switch(int grade)

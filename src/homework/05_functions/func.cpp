@@ -2,6 +2,8 @@
 #include "func.h"
 
 //add function code here
+
+//function to get the gc_content of dna
 double get_gc_content(const string &dna)
 {
     //initialize variables
@@ -12,7 +14,7 @@ double get_gc_content(const string &dna)
     for (int i = 0; i < dna_length; i++)
     {
         //if dna string is G or C, add to gc_count
-        if (dna[i] == 'G' || dna[i] == 'C')
+        if (dna[i] == 'G' || dna[i] == 'g' || dna[i] == 'C' || dna[i] == 'c')
         {
             gc_count++;
         }
@@ -21,6 +23,7 @@ double get_gc_content(const string &dna)
     return (gc_count / dna_length);
 }
 
+//function to get dna reverse complement
 string get_dna_complement(string dna)
 {
     //get reverse dna complement
@@ -30,22 +33,22 @@ string get_dna_complement(string dna)
     for (int i = 0; i < dna_reverse_length; i++)
     {
         //if dna string is A, replace with T
-        if (dna_reverse[i] == 'A')
+        if (dna_reverse[i] == 'A' || dna_reverse[i] == 'a')
         {
             dna_complement += 'T';
         }
         //if dna string is T, replace with A
-        else if (dna_reverse[i] == 'T')
+        else if (dna_reverse[i] == 'T' || dna_reverse[i] == 't')
         {
             dna_complement += 'A';
         }
         //if dna string is C, replace with G
-        else if (dna_reverse[i] == 'C')
+        else if (dna_reverse[i] == 'C' || dna_reverse[i] == 'c')
         {
             dna_complement += 'G';
         }
         //if dna string is G, replace with C
-        else if (dna_reverse[i] == 'G')
+        else if (dna_reverse[i] == 'G' || dna_reverse[i] == 'g')
         {
             dna_complement += 'C';
         }
@@ -53,6 +56,7 @@ string get_dna_complement(string dna)
     return dna_complement;
 }
 
+//function to reverse dna string
 string reverse_string(string dna)
 {
     string dna_reverse = "";

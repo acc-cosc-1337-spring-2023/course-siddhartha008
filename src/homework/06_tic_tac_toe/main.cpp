@@ -4,6 +4,8 @@
 using std::cin;
 using std::cout;
 
+
+
 int main()
 {
 	TicTacToe game;
@@ -27,6 +29,7 @@ int main()
 			game.mark_board(position);
 			game.display_board();
 		}
+		cout << "Winner is: " << game.get_winner() << "\n";
 		cout << "\nGame Over"
 			 << "\n";
 	

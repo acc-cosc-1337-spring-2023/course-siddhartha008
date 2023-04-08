@@ -4,6 +4,8 @@
 
 using std::cout;
 
+
+
 bool TicTacToe::game_over()
 {
 
@@ -94,14 +96,14 @@ string TicTacToe::get_player() const
     return TicTacToe::player;
 }
 
-void TicTacToe::display_board() const
-{
-    for (int i = 0; i < 9; i += 3)
-    {
-        cout << TicTacToe::pegs[i] << "|" << TicTacToe::pegs[i + 1] << "|" << TicTacToe::pegs[i + 2]
-             << "\n";
-    }
-}
+// void TicTacToe::display_board() const
+// {
+//     for (int i = 0; i < 9; i += 3)
+//     {
+//         cout << TicTacToe::pegs[i] << "|" << TicTacToe::pegs[i + 1] << "|" << TicTacToe::pegs[i + 2]
+//              << "\n";
+//     }
+// }
 
 void TicTacToe::set_next_player()
 {
@@ -156,3 +158,21 @@ string TicTacToe::get_winner() const
     return winner;
 }
 
+std::ostream &operator<<(std::ostream &out, const TicTacToe &game)
+{
+    for (int i = 0; i < 9; i += 3)
+    {
+        out << game.pegs[i] << "|" << game.pegs[i + 1] << "|" << game.pegs[i + 2]
+            << "\n";
+    }
+    return out;
+}
+
+std::istream &operator>>(std::istream &in, TicTacToe &game)
+{
+    int position;
+    cout << "Enter position 1-9: ";
+    in >> position;
+    game.mark_board(position);
+    return in;
+}
